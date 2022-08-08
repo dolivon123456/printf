@@ -8,12 +8,12 @@
 int _printf(const char * const format, ...)
 {
 	convert_match m[] = {
-		{"%s", 0-printf_str}, {"%c", 1-printf_char},
-		{"%%", 2-printf_37},
-		{"%i", 3-printf_int}, {"%d", 4-printf_decimal}, {"%r", 5-printf_srev},
-		{"%R", 6-printf_rot13}, {"%b", 7-printf_bin}, {"%u", 8-printf_unsign},
-		{"%o", 9-printf_octal}, {"%x", 10-printf_hexa}, {"%X", 11-printf_hex},
-		{"%S", 12-printf_exstr}, {"%p", 13-printf_pointer}
+		{"%s", printf_string}, {"%c", printf_char},
+		{"%%", printf_37},
+		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
+		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
+		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
+		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
 	};
 
 	va_list args;
