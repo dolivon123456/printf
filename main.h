@@ -6,11 +6,6 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#define DECIMAL 10
-#define HEX 16
-#define OCTAL 8
-#define BINARY 2
-
 /**
  * struct format - match the conversion specifiers for printf
  * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
