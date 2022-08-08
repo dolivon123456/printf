@@ -50,3 +50,4 @@ char *upper_str(char *);
 int isPrintable(char);
 int upper_strlen(char *);
 
+#endif
