@@ -13,7 +13,7 @@ int print_str(const char *format, int count, va_list args, int *flag)
 {
 	char *s;
 	int retval;
-	
+
 	s = va_arg(args, char *);
 	if (s == NULL)
 		return (print_string("(null)", flag, count));
