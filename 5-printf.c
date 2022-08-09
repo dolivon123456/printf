@@ -76,4 +76,3 @@ int _vprintf(const char *format, va_list args)
 	}
 	va_end(args);
 	return (print_count);
-}
