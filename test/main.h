@@ -1,46 +1,54 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <unistd.h>
-#include <stdio.h>
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdio.h>
+
+#define DECIMAL 10
+#define HEX 16
+#define OCTAL 8
+#define BINARY 2
 
 /**
- * struct format - match the conversion specifiers for printf
- * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
- * @f: type pointer to function for the conversion specifier
- *
+ * struct specifierStruct - struct to hold all specifier
+ * @specifier: character pointer
+ * @func: callback funtion
  */
-
-typedef struct format
+typedef struct specifierStruct
 {
-	char *id;
-	int (*f)();
-} convert_match;
+	char *specifier;
+	int (*func)(const char *, int, va_list, int *);
+} specifierStruct;
 
-int printf_pointer(va_list val);
-int printf_hex_aux(unsigned long int num);
-int printf_HEX_aux(unsigned int num);
-int printf_exclusive_string(va_list val);
-int printf_HEX(va_list val);
-int printf_hex(va_list val);
-int printf_oct(va_list val);
-int printf_unsigned(va_list args);
-int printf_bin(va_list val);
-int printf_srev(va_list args);
-int printf_rot13(va_list args);
-int printf_int(va_list args);
-int printf_dec(va_list args);
-int _strlen(char *s);
-int *_strcpy(char *dest, char *src);
-int _strlenc(const char *s);
-int rev_string(char *s);
-int _strlenc(const char *s);
-int printf_37(void);
-int printf_char(va_list val);
-int printf_string(va_list val);
-int _putchar(char c);
+int check_specifier(const char *, int, va_list, int *);
 int _printf(const char *format, ...);
+int isDigit(char);
+int isAlpha(char);
+int setFlags(const char *, int *, int, va_list);
+int print_string(char *, int *, int);
+char *rot13(char *s);
+int get_index(char *, char);
+int _vprintf(const char *, va_list);
+int _printf(const char *, ...);
+void signedNumberToString(int64_t, int, char *, char, int *);
+void unsignedNumberToString(uint64_t, int, char *, char, int *);
+int _putchar(char);
+int format_specifier(int, const char *, va_list, int *, int *,  int *, int *);
+char *reversed(char *);
+
+int print_char(const char *, int, va_list, int *);
+int print_int(const char *, int, va_list, int *);
+int print_str(const char *, int, va_list, int *);
+int print_unsigned(const char *, int, va_list, int *);
+int print_addr(const char *, int, va_list, int *);
+int print_oct_bin(const char *, int, va_list, int *);
+int print_rot13(const char *, int, va_list, int *);
+int print_reverse(const char *, int, va_list, int *);
+char *upper_str(char *);
+int isPrintable(char);
+int upper_strlen(char *);
+int getDigitsValue(const char *fmt, int *j, int);
 
 #endif
