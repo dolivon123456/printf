@@ -92,4 +92,3 @@ int getDigitsValue(const char *fmt, int *res, int index)
 		*res += fmt[i++] - '0';
 	}
 	return (i - index);
-}
