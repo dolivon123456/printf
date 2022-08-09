@@ -2,6 +2,16 @@
 #include <unistd.h>
 
 /**
+ * _putchar - print a character
+ * @c: character to print
+ * Return: 0
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+/**
  * print_string - print a string with flags
  * @str: pointer to str
  * @flags: pointer to flags array
